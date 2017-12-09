@@ -22,47 +22,80 @@ Androidのビルドを行っていく上で避けては通れない `git-repo` �
 
 ### howto
 
-<pre class="code">mkdir -p ~/bin</pre>
-<pre class="code">PATH=~/bin:$PATH</pre>
-<pre class="code">curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</pre>
-<pre class="code">chmod a+x ~/bin/repo</pre>
+```
+mkdir -p ~/bin
+```
+
+```
+PATH=~/bin:$PATH
+```
+
+
+```
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+```
+
+```
+chmod a+x ~/bin/repo
+```
+
 
 ## repo の基礎/利用可能なコマンド
 
 repo は以下のように用います:
 
-<pre class="code">repo &lt;COMMAND&gt; &lt;OPTIONS&gt;</pre>
+```
+repo <COMMAND> <OPTIONS>
+```
+
 > コマンドは全部説明すると長いのでビルドに必要なとこだけ抜粋で
 
 ### help
 
 repo がインストールされていれば、最新のドキュメントと利用可能なすべてのコマンドは以下で確認できます:
 
-<pre class="code">repo help</pre>
+```
+repo help
+```
+
 
 repo の各コマンドについてのヘルプを参照するには、以下のようにします:
 
-<pre class="code">repo help &lt;COMMAND&gt;</pre>
+```
+repo help <COMMAND>
+```
+
 
 例えば、 `repo init` についての説明や利用可能なオプションを確認するには以下のようにします(この後 `init` の項でも解説しますが…):
 
-<pre class="code">repo help init</pre>
+```
+repo help init
+```
+
 
 ### version
 
-<pre class="code">repo version</pre>
+```
+repo version
+```
+
 
 現在インストールされている repo、repo launcher、git、python、GCC のバージョンを表示します。 `repo --version` も同様。
 
 ### selfupdate
 
-<pre class="code">repo selfupdate</pre>
+```
+repo selfupdate
+```
+
 
 `repo` コマンド自身を最新版に更新します。各種 Linux ディストリのパッケージマネージャから取得できるものはたいてい古いので時々お世話になります。
 
 ### init
 
-<pre class="code">repo init -u &lt;URL&gt; [&lt;OPTIONS&gt;]</pre>
+```
+repo init -u <URL> [<OPTIONS>]
+```
 
 `.repo/` ディレクトリを作成し、取得される Git リポジトリの実態はこちらに格納されます。また `.repo/manifest.xml`  も作られますが、これは `.repo/manifests/` へのシンボリックリンクです。
 
@@ -74,12 +107,14 @@ repo の各コマンドについてのヘルプを参照するには、以下の
 
 ### sync
 
-<pre class="code">repo sync [&lt;OPTIONS&gt;] [&lt;PROJECT_LIST&gt;]</pre>
+```
+repo sync [<OPTIONS>] [<PROJECT_LIST>]
+```
 
-新しい変更をダウンロードし、ローカルの環境を更新します。 `repo sync` の実行時に `&lt;PROJECT_LIST&gt;` が与えられていない場合は、全てのプロジェクトを同期します。
+新しい変更をダウンロードし、ローカルの環境を更新します。 `repo sync` の実行時に `<PROJECT_LIST>` が与えられていない場合は、全てのプロジェクトを同期します。
 
 - 初めてプロジェクトを sync する場合は、`repo sync` は `git clone` と同義です。
-- 既に同期済みのプロジェクトについては、`git remote update &amp;&amp; git rebase origin/&lt;BRANCH&gt;` と同義です。
+- 既に同期済みのプロジェクトについては、`git remote update &amp;&amp; git rebase origin/<BRANCH>` と同義です。
 
 `repo sync` が成功すれば、指定されたプロジェクト内のコードはリモートリポジトリの最新のコードに同期されています。
 
@@ -87,7 +122,7 @@ repo の各コマンドについてのヘルプを参照するには、以下の
 
 > これまたビルドに必要な部分のみ。一覧は `repo help sync` か `repo sync --help` か `repo sync -h` で
 
-- `-j &lt;JOBS&gt;` or `--jobs=&lt;JOBS&gt;`: 同時に sync を実行するジョブ数を `repo sync -j8` のように指定します。ネットワーク環境に合わせて指定してください。未指定の場合は manifest に従って決められた値になります
+- `-j <JOBS>` or `--jobs=<JOBS>`: 同時に sync を実行するジョブ数を `repo sync -j8` のように指定します。ネットワーク環境に合わせて指定してください。未指定の場合は manifest に従って決められた値になります
 
     - Androidだと `sync-j: "4"` が指定されていることが多いです [https://android.googlesource.com/platform/manifest/+/nougat-mr2-release/default.xml#9](https://android.googlesource.com/platform/manifest/+/nougat-mr2-release/default.xml#9) 。
 
@@ -108,7 +143,9 @@ manifest は repo でリモートのリポジトリをローカルの作業環�
 
 何もしてない状態で
 
-<pre class="code">breakfast hammerhead</pre>
+```
+breakfast hammerhead
+```
 
 とかすると `.repo/local_manifests/roomservice.xml` の中にやってくれるんですが、個人的にはここを使用することは推奨しません。ここに追記していくのは尚更良くないです。上書きされることがあるためです。
 
@@ -118,17 +155,19 @@ manifest は repo でリモートのリポジトリをローカルの作業環�
 
 以下に hammerhead.xml の例を示します。
 
-<pre class="code lang-xml"><span class="synComment">&lt;?</span><span class="synType">xml version</span>=<span class="synConstant">&quot;1.0&quot;</span><span class="synType"> encoding</span>=<span class="synConstant">&quot;UTF-8&quot;</span><span class="synComment">?&gt;</span>
-<span class="synIdentifier">&lt;manifest&gt;</span>
-<span class="synComment">&lt;!-- common --&gt;</span>
-<span class="synIdentifier">&lt;project </span><span class="synType">name</span>=<span class="synConstant">&quot;LineageOS/android_device_qcom_common&quot;</span><span class="synIdentifier"> </span><span class="synType">path</span>=<span class="synConstant">&quot;device/qcom/common&quot;</span><span class="synIdentifier"> </span><span class="synType">remote</span>=<span class="synConstant">&quot;github&quot;</span><span class="synIdentifier"> </span><span class="synType">revision</span>=<span class="synConstant">&quot;cm-14.1&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synIdentifier">&lt;project </span><span class="synType">name</span>=<span class="synConstant">&quot;LineageOS/android_external_stlport&quot;</span><span class="synIdentifier"> </span><span class="synType">path</span>=<span class="synConstant">&quot;external/stlport&quot;</span><span class="synIdentifier"> </span><span class="synType">remote</span>=<span class="synConstant">&quot;github&quot;</span><span class="synIdentifier"> </span><span class="synType">revision</span>=<span class="synConstant">&quot;cm-14.1&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synIdentifier">&lt;project </span><span class="synType">name</span>=<span class="synConstant">&quot;LineageOS/android_packages_resources_devicesettings&quot;</span><span class="synIdentifier"> </span><span class="synType">path</span>=<span class="synConstant">&quot;packages/resources/devicesettings&quot;</span><span class="synIdentifier"> </span><span class="synType">remote</span>=<span class="synConstant">&quot;github&quot;</span><span class="synIdentifier"> </span><span class="synType">revision</span>=<span class="synConstant">&quot;cm-14.1&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synComment">&lt;!-- hammerhead --&gt;</span>
-<span class="synIdentifier">&lt;project </span><span class="synType">name</span>=<span class="synConstant">&quot;LineageOS/android_device_lge_hammerhead&quot;</span><span class="synIdentifier"> </span><span class="synType">path</span>=<span class="synConstant">&quot;device/lge/hammerhead&quot;</span><span class="synIdentifier"> </span><span class="synType">remote</span>=<span class="synConstant">&quot;github&quot;</span><span class="synIdentifier"> </span><span class="synType">revision</span>=<span class="synConstant">&quot;cm-14.1&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synIdentifier">&lt;project </span><span class="synType">name</span>=<span class="synConstant">&quot;LineageOS/android_kernel_lge_hammerhead&quot;</span><span class="synIdentifier"> </span><span class="synType">path</span>=<span class="synConstant">&quot;kernel/lge/hammerhead&quot;</span><span class="synIdentifier"> </span><span class="synType">remote</span>=<span class="synConstant">&quot;github&quot;</span><span class="synIdentifier"> </span><span class="synType">revision</span>=<span class="synConstant">&quot;cm-14.1&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synIdentifier">&lt;/manifest&gt;</span>
-</pre>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- common -->
+  <project name="LineageOS/android_device_qcom_common" path="device/qcom/common" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_external_stlport" path="external/stlport" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="cm-14.1" />
+
+  <!-- hammerhead -->
+  <project name="LineageOS/android_device_lge_hammerhead" path="device/lge/hammerhead" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_kernel_lge_hammerhead" path="kernel/lge/hammerhead" remote="github" revision="cm-14.1" />
+</manifest>
+```
 
 #### manifestの要素
 
@@ -145,16 +184,17 @@ BitBucketやGitLabなど、既存のmanifestで未定義のサーバからリポ
 
 以下にこの2つを用いて、aarch64 用のgccを[UBER Toolchain](https://github.com/UBERTC/)のものに置き換えるmanifestの例を示します。
 
-<pre class="code lang-xml"><span class="synComment">&lt;?</span><span class="synType">xml version</span>=<span class="synConstant">&quot;1.0&quot;</span><span class="synType"> encoding</span>=<span class="synConstant">&quot;UTF-8&quot;</span><span class="synComment">?&gt;</span>
-<span class="synIdentifier">&lt;manifest&gt;</span>
-<span class="synComment">&lt;!-- UBERTC --&gt;</span>
-<span class="synIdentifier">&lt;remote </span><span class="synType">name</span>=<span class="synConstant">&quot;bucket&quot;</span>
-<span class="synIdentifier">          </span><span class="synType">fetch</span>=<span class="synConstant">&quot;https://bitbucket.org&quot;</span>
-<span class="synIdentifier">          </span><span class="synType">revision</span>=<span class="synConstant">&quot;master&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synIdentifier">&lt;remove-project </span><span class="synType">name</span>=<span class="synConstant">&quot;LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synIdentifier">&lt;project </span><span class="synType">name</span>=<span class="synConstant">&quot;DespairFactor/aarch64-linux-android-4.9&quot;</span><span class="synIdentifier"> </span><span class="synType">path</span>=<span class="synConstant">&quot;prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9&quot;</span><span class="synIdentifier"> </span><span class="synType">remote</span>=<span class="synConstant">&quot;bucket&quot;</span><span class="synIdentifier"> /&gt;</span>
-<span class="synIdentifier">&lt;/manifest&gt;</span>
-</pre>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+<!-- UBERTC -->
+  <remote name="bucket"
+          fetch="https://bitbucket.org"
+          revision="master" />
+  <remove-project name="LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" />
+  <project name="DespairFactor/aarch64-linux-android-4.9" path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" remote="bucket" />
+</manifest>
+```
 
 ## 参考
 
