@@ -51,7 +51,7 @@ SSD(SATA)1 | 500GB (`75E500B/IT`) | Samsung | `/ssd1`。開発環境。
 SSD(NVMe) | 400GB (`SSDPEDMW400G4X1`) | Intel | `/nvme0`。ビルド環境と `/tmp`。 [^1]
 OS | Ubuntu 16.04.4 | - | 64bit必須。Server版 [^2]
 
-[^1]: PCIe 3.0対応SSDなんだけど、CPU,M/BがPCIe 2.0までしか対応して無いのでア  
+[^1]: SSDとM/BはPCIe 3.0対応なんだけど、CPUだけPCIe 2.0までしか対応して無いのでア  
 [^2]: Desktop版やその他のLinuxディストリビューションでもなんとかなるとは思いますが、保証はしません。例えばArch Linuxの場合、GNU makeのバージョンが合わなかったりpython2.7が必要になったりで手間が増えます。
 
 - 当記事ではビルド用のソースディレクトリは `~/lineage` として進めます
