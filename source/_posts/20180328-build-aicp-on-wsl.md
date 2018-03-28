@@ -17,9 +17,9 @@ date: 2018-03-28 20:37:00
 
 適当にMicrosoft Storeを開いて `ubuntu` とか検索するとなんかWSLの特設ページ行きのバナーが出るので、そこから入れるのが安心だと思います。
 
-![](../images/image-wsl-install-1.png)
+![](/images/image-wsl-install-1.png)
 
-![](../images/image-wsl-install-2.png)
+![](/images/image-wsl-install-2.png)
 
 あとは指示に従ってユーザを生やしたりパスワードを設定したりしてください。
 
@@ -100,7 +100,7 @@ breakfast <device> && mka bacon WITH_DEXPREOPT=false
 
 ## 結果
 
-![](../images/image-complete-build-on-wsl.png)
+![](/images/image-complete-build-on-wsl.png)
 
 すごい！WSL上でビルドが通る！！というのもそうだけど、寝てる間に走らせといたら **9時間かかった** 。
 
