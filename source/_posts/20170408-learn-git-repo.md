@@ -127,6 +127,7 @@ repo sync [<OPTIONS>] [<PROJECT_LIST>]
     - Androidだと `sync-j: "4"` が指定されていることが多いです [https://android.googlesource.com/platform/manifest/+/nougat-mr2-release/default.xml#9](https://android.googlesource.com/platform/manifest/+/nougat-mr2-release/default.xml#9) 。
 
 - `-f` or `--force-broken`: 同期に失敗したプロジェクトがあっても sync を継続します。
+    * このオプションは少なくとも初めてビルドが成功するまでは **使用すべきではありません** 。既にsyncが正常に完了しているならば該当するプロジェクトが更新されないだけですが、初回での同期の失敗はプロジェクトの取得が正常に完了していないことを意味し、多くの場合で破損または欠落したプロジェクトの存在に気づかないことによる悲劇を招きます。
 - `--force-sync`: ローカルに存在する既存の Git リポジトリをリモートから取得したもので **上書きします** 。ローカルで加えた変更は失われることに注意して下さい。
 > 以下は必ずしも必要というわけではないけど、ストレージ使用量を少しでも削りたい人向け？
 
