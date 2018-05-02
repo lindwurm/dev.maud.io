@@ -45,16 +45,15 @@ ROMのビルド | PCのスペックによる
 パーツ | 構成 | メーカー | 備考
 :-----:|:-----|:---------|:----
 CPU | i7-3770K @ 3.50GHz | Intel | 4コア/8スレッド。
-RAM | 32GB (`W3U1600PS-8G`) | Panram | 8GB*4。現状積める最大。
+RAM | 32GB (`W3U1600PS-8G`) | Panram | 8GB x4。現状積める最大。
 SSD(SATA)0 | 512GB (`TS512GSSD370S`) | Transcend | システムのインストール先及び `/home`。
 SSD(SATA)1 | 500GB (`75E500B/IT`) | Samsung | `/ssd1`。開発環境。
-SSD(NVMe) | 400GB (`SSDPEDMW400G4X1`) | Intel | `/nvme0`。ビルド環境と `/tmp`。 [^1]
-OS | Ubuntu 16.04.4 | - | 64bit必須。Server版 [^2]
+SSD(NVMe) | 400GB (`SSDPEDMW400G4X1`) | Intel | `/nvme0`。ビルド環境と `/tmp`。
+OS | Ubuntu 16.04.4 | - | 64bit必須。Server版 ^
 
-[^1]: ~~SSDとM/BはPCIe 3.0対応なんだけど、CPUだけPCIe 2.0までしか対応して無いのでア~~ 2700K→3770Kに換えました  
-[^2]: Desktop版やその他のLinuxディストリビューションでもなんとかなるとは思いますが、保証はしません。例えばArch Linuxの場合、GNU makeのバージョンが合わなかったりpython2.7が必要になったりで手間が増えます。
+- ^ Desktop版やその他のLinuxディストリビューションでもなんとかなるとは思いますが、保証はしません。例えばpython2.7が必要になったり。
 
-- 当記事ではビルド用のソースディレクトリは `~/lineage` として進めます
+- 当記事では便宜上、ビルド用のソースディレクトリは `~/lineage` として進めます
 
 ## ビルド環境のセットアップ (ソフトウェア)
 
@@ -62,19 +61,32 @@ OS | Ubuntu 16.04.4 | - | 64bit必須。Server版 [^2]
 
 ビルドするマシンに直接Android端末を接続する機会がある場合は `android-tools-adb` や `phablet-tools` 、`android-tools-fastboot` とかも入れとくと便利です。
 
-#### Ubuntu 16.04 LTS 以降 (推奨)
+#### Ubuntu 16.04 LTS (推奨) / 18.04 LTS
 
 必要なパッケージは以下の通りです。
 
 ```
-sudo apt update && sudo apt install autoconf automake bc bison build-essential curl flex g++ g++-multilib gawk gcc gcc-multilib git-core gnupg gperf imagemagick lib32ncurses5-dev lib32readline6-dev lib32z1-dev libc6-dev libesd0-dev libexpat1-dev liblz4-1 liblz4-tool liblzma5 liblzma-dev libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven openjdk-8-jdk openjdk-8-jre patch pkg-config pngcrush python schedtool squashfs-tools texinfo unzip xsltproc zip zlib1g-dev
+sudo apt update && sudo apt install autoconf automake bc bison build-essential curl flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev libexpat1-dev liblz4-1 liblz4-tool liblzma5 liblzma-dev libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven openjdk-8-jdk openjdk-8-jre patch pkg-config pngcrush python schedtool squashfs-tools texinfo unzip xsltproc zip zlib1g-dev
 ```
 
-#### Ubuntu 14.04 LTS もしくは 15.10 以前
+##### Ubuntu 18.04 LTS での変更点
 
-**15.10 以前のリリース**: そもそもサポートが切れています。一刻も早くサポート中のバージョンへのアップグレードをしてください。
+- `git-core` → `git` : 前者は17.10以前は後者で「も」提供されている、という形だったが、18.04からは後者「で」提供される仮想パッケージになった
+- `lib32readline6-dev` → `lib32readline-dev` : かつては後者が前者によって提供される仮想パッケージだったが、17.10以降では前者が後者によって提供される仮想パッケージになった
+- `libesd0-dev` : 18.04 でパッケージが無くなったが、ビルドは通る（はず）。
+- 結果的に18.04側に合わせてパッケージ書き連ねても概ね問題ないという感じなので上のやつはそのようになっています。
 
-**14.04 LTS**: OpenJDK 8 が公式リポジトリに含まれていません。かつては ppa:openjdk-r から入手することもできましたが、もはやこのPPA上のOpenJDKは更新されていません。サポート期間は 2019年4月 までですが、これからビルド環境を構築するにはおすすめできない構成です。16.04 LTSへのアップグレードを検討してください。
+#### Ubuntu 14.04 LTS
+
+OpenJDK 8 が公式リポジトリに含まれていません。かつては `ppa:openjdk-r` から入手することもできましたが、もはやこのPPA上のOpenJDKは更新されていません。サポート期間は 2019年4月 までですが、これからビルド環境を構築するにはおすすめできない構成です。16.04 LTS へのアップグレードもしくは 18.04 LTS の導入を検討してください。
+
+#### 17.04 以前の非LTSリリース
+
+そもそもサポートが切れています。一刻も早くサポート中のバージョンへのアップグレードをしてください。
+
+#### 17.10
+
+一応 16.04/18.04 の手順通りで良いはずだけど、非LTSリリースは未検証なので保証はないです。
 
 ### `repo` のセットアップ
 
@@ -143,7 +155,7 @@ repo init -u https://github.com/LineageOS/android.git -b lineage-15.1
     - その他のオプションについては [Android ビルドで学ぶ git-repo 入門 | dev:mordiford](https://dev.maud.io/entry/2017/04/08/learn-git-repo/) に書いたとおりなのでやっぱりこちらもおすすめです。
 
 ```
-repo sync -j8 -f --force-sync --no-clone-bundle
+repo sync -j8 --force-sync --no-clone-bundle
 ```
 
 ## ビルドの準備
@@ -235,7 +247,15 @@ xda-Developersの [[GUIDE][TUT][WINDOWS/LINUX] How To Extract Nexus Factory Imag
 ここまでの作業中にLineage側で何かしら更新されていたり、local_manifestsに手を加えたりしているかもしれません。ビルド前に `repo sync` し直すと良いです。
 
 ```
-repo sync -j8 -c -f --force-sync --no-clone-bundle
+repo sync -j8 --force-sync --no-clone-bundle
+```
+
+> 18.04ならここで `export LC_ALL=C.UTF-8` しないとビルドが通らないっぽい？
+
+おまじない
+
+```
+export ALLOW_MISSING_DEPENDENCIES=true
 ```
 
 ビルド用のコマンド集みたいなもの、`envsetup` を読み込んで
@@ -293,11 +313,11 @@ brunch <device> 2>&1 | tee lineage_$(date '+%Y%m%d_%H-%M-%S').log
 
 AOSPの公式ドキュメントである [Preparing to Build](https://source.android.com/setup/building#build-the-code) ではハードウェアスレッド数の1-2倍程度を `-jN` 引数に指定したときに最も早くなるとして推奨しています。
 
-実際に測った結果は[2018年3月の東海道らぐ横浜](https://tokaidolug.connpass.com/event/78990/)で紹介していますが[^3]、おおよそコア数 × 2GB 以上のRAMを確保していれば `-jN` を等倍にするのが最適で、これを2倍に引き上げてもビルド時間は誤差程度にしか短縮されなかった例があります。
+実際に測った結果は[2018年3月の東海道らぐ横浜](https://tokaidolug.connpass.com/event/78990/)で紹介していますが[^]、おおよそコア数 × 2GB 以上のRAMを確保していれば `-jN` を等倍にするのが最適で、これを2倍に引き上げてもビルド時間は誤差程度にしか短縮されなかった例があります。
 
 逆に、コア数 × 1GB 程度かそれ以下のRAMしか積んでいないのであれば、 `-jN` の値を下げたほうがビルド時間が改善されることも起こり得るでしょう。
 
-[^3]: https://speakerdeck.com/lindwurm/tokaidolug-yokohama-201803
+[^]: https://speakerdeck.com/lindwurm/tokaidolug-yokohama-201803
 
 ## あとがき
 
