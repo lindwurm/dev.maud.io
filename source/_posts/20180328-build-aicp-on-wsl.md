@@ -39,6 +39,8 @@ curl -sL https://raw.githubusercontent.com/lindwurm/Scripts/master/setupAndroidB
 
 ## ソースコードの取得
 
+AICPの場合。
+
 ```
 mkdir aicp && cd aicp
 ```
@@ -46,6 +48,8 @@ mkdir aicp && cd aicp
 ```
 repo init -u https://github.com/AICP/platform_manifest.git -b o8.1
 ```
+
+<details><summary> 8/12更新: 以下は現在では不要（クリックして展開）</summary>
 
 ```
 mkdir -p .repo/local_manifests && nano .repo/local_manifests/wsl.xml
@@ -75,6 +79,8 @@ mkdir -p .repo/local_manifests && nano .repo/local_manifests/wsl.xml
 </manifest>
 ```
 
+</details>
+
 あとdeviceの分もお忘れなく。
 
 ```
@@ -83,10 +89,9 @@ repo sync -j16 -c -f --force-sync --no-clone-bundle
 
 ### 注意
 
-上ではもう mordiford/build にパッチ当ててあるのでそっちに入れ替えているけど、LineageOSやその派生には https://review.lineageos.org/#/c/208102/ を当てる必要があります。
+~~上ではもう mordiford/build にパッチ当ててあるのでそっちに入れ替えているけど、LineageOSやその派生には https://review.lineageos.org/#/c/208102/ を当てる必要があります。LineageOSなら `repopick 208102` で当たるし、派生は右上の [Download▼] からパッチを入手して当てるとよいです。~~
 
-LineageOSなら `repopick 208102` で当たるし、派生は右上の [Download▼] からパッチを入手して当てるとよいです。
-
+2018/07/28くらいに[一連のパッチがmergeされた](https://github.com/LineageOS/android_build/commits/a82a188b512ff34ae8f7e128d804ccaa56bb8902)のでLinuxでの手順と差異がなくなりました。
 
 ## ビルド
 
@@ -122,3 +127,8 @@ i7-2700K / 16GB(DDR3) / 500GB SSD みたいなよくある一昔前の構成と�
 - dev:mordiford
     - [LineageOS 15.1 のビルド方法](https://dev.maud.io/entry/2018/03/19/howto-build-lineageos-15-1/)
         - 自分の記事。パッケージ一覧の参考
+- GitHub
+    - [Adapt ijar for WSL](https://github.com/LineageOS/android_build/commit/14925d0308495cc0877f52cbdbce3d2f320eaea1)
+    - [Add detection for WSL](https://github.com/LineageOS/android_build/commit/ecf613729a0b5f9899182b19fe614abe38f7d18e)
+    - [dex2oat: disable multithreading for WSL](https://github.com/LineageOS/android_build/commit/17bc5883d52f25416cc2a9ebcd276c1f3e8f37da)
+    - [core: config: Use host ijar if requested](https://github.com/LineageOS/android_build/commit/a82a188b512ff34ae8f7e128d804ccaa56bb8902)
