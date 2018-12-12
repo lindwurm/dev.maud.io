@@ -91,7 +91,7 @@ prism_plugin:
 markdown:
   render:
     html: true
-    plugins:
+  plugins:
     - markdown-it-footnote
     - markdown-it-sub
     - markdown-it-sup
