@@ -85,13 +85,3 @@ prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
   theme: 'base16-ateliersulphurpool.light'
   line_number: false
-
-# Markdown-it config
-## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki/
-markdown:
-  render:
-    html: true
-  plugins:
-    - markdown-it-footnote
-    - markdown-it-sub
-    - markdown-it-sup
