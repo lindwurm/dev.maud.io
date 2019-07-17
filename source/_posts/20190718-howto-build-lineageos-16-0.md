@@ -196,8 +196,8 @@ touch .repo/local_manifests/bullhead.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="LineageOS/android_device_lge_bullhead" path="device/lge/bullhead" remote="github" revision="lineage-15.1" />
-  <project name="LineageOS/android_kernel_lge_bullhead" path="kernel/lge/bullhead" remote="github" revision="lineage-15.1" />
+  <project name="LineageOS/android_device_lge_bullhead" path="device/lge/bullhead" remote="github" revision="lineage-16.0" />
+  <project name="LineageOS/android_kernel_lge_bullhead" path="kernel/lge/bullhead" remote="github" revision="lineage-16.0" />
 </manifest>
 ```
 
