@@ -61,13 +61,15 @@ OS | Ubuntu 16.04.4 | - | 64bit必須。Server版 ^
 
 ビルドするマシンに直接Android端末を接続する機会がある場合は `android-tools-adb` や `phablet-tools` 、`android-tools-fastboot` とかも入れとくと便利です。
 
-#### Ubuntu 16.04 LTS (推奨) / 18.04 LTS
+#### Ubuntu 16.04 LTS / 18.04 LTS
 
 必要なパッケージは以下の通りです。
 
 ```
-sudo apt update && sudo apt install autoconf automake bc bison build-essential curl flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev libexpat1-dev liblz4-1 liblz4-tool liblzma5 liblzma-dev libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven openjdk-8-jdk openjdk-8-jre patch pkg-config pngcrush python schedtool squashfs-tools texinfo unzip xsltproc zip zlib1g-dev
+sudo apt update && sudo apt install autoconf automake bc bison build-essential curl flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev libexpat1-dev liblz4-1 liblz4-tool liblzma5 liblzma-dev libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven patch pkg-config pngcrush python schedtool squashfs-tools texinfo unzip xsltproc zip zlib1g-dev
 ```
+
+Android 8.1以降、prebuilts/jdk/jdk8 に同梱されるようになったためOpenJDKのインストールは必要なくなりました。
 
 ##### Ubuntu 18.04 LTS での変更点
 
@@ -78,13 +80,9 @@ sudo apt update && sudo apt install autoconf automake bc bison build-essential c
 
 #### Ubuntu 14.04 LTS
 
-OpenJDK 8 が公式リポジトリに含まれていません。かつては `ppa:openjdk-r` から入手することもできましたが、もはやこのPPA上のOpenJDKは更新されていません。サポート期間は 2019年4月 までですが、これからビルド環境を構築するにはおすすめできない構成です。16.04 LTS へのアップグレードもしくは 18.04 LTS の導入を検討してください。
+サポート期間は2019年4月で終了しました。サポート中のバージョンへのアップグレードをしてください。
 
-#### 17.04 以前の非LTSリリース
-
-そもそもサポートが切れています。一刻も早くサポート中のバージョンへのアップグレードをしてください。
-
-#### 17.10
+#### 非LTSリリース
 
 一応 16.04/18.04 の手順通りで良いはずだけど、非LTSリリースは未検証なので保証はないです。
 
