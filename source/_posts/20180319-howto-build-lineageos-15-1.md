@@ -66,7 +66,7 @@ OS | Ubuntu 16.04.4 | - | 64bit必須。Server版 ^
 必要なパッケージは以下の通りです。
 
 ```
-sudo apt update && sudo apt install autoconf automake bc bison build-essential curl flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev libexpat1-dev liblz4-1 liblz4-tool liblzma5 liblzma-dev libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven patch pkg-config pngcrush python schedtool squashfs-tools texinfo unzip xsltproc zip zlib1g-dev
+sudo apt update && sudo apt install autoconf automake bc bison build-essential curl flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev libexpat1-dev liblz4-1 liblz4-tool liblzma5 liblzma-dev libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven patch pkg-config pngcrush python schedtool squashfs-tools texinfo unzip xsltproc zip zlib1g-dev
 ```
 
 Android 8.1以降、prebuilts/jdk/jdk8 に同梱されるようになったためOpenJDKのインストールは必要なくなりました。
