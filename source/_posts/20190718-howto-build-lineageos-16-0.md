@@ -9,7 +9,7 @@ thumbnail: /images/banner-howto-build-lineage-16-0.png
 
 <!-- more -->
 
-一度覚えてしまえば、他の派生ROMでもだいたい通用する方法です。
+一度覚えてしまえば、FlokoROMなどの派生ROMでもだいたい通用する方法です。
 
 英語が読める人は原文とか読んだほうがいいです。
 
@@ -75,7 +75,7 @@ ROMのビルド | PCのスペックによる
 必要なパッケージは以下の通りです。
 
 ```
-sudo apt update && sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
+sudo apt update && sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush repo rsync schedtool squashfs-tools unzip xsltproc zip zlib1g-dev
 ```
 
 #### 非LTSな最新のリリース (執筆時点: 19.04)
@@ -86,11 +86,11 @@ sudo apt update && sudo apt install bc bison build-essential ccache curl flex g+
 
 今すぐ Ubuntu 18.04.x をインストールしてください。
 
-### `repo` のセットアップ
+### `repo` コマンドのためのセットアップ
 
-`repo` は複数のgitリポジトリを一括で管理できるツールです。
+`git-repo` (`repo` コマンド) は複数のgitリポジトリを一括で管理できるツールです。 `apt` などのパッケージ管理システムを用いてインストールするのが簡単でしょう。Ubuntuでのパッケージ名は [`repo`](https://packages.ubuntu.com/ja/bionic/repo) です。
 
-詳細はGoogleによるリファレンス ― [Repo command reference | Android Open Source Project](http://source.android.com/source/using-repo.html) を、実践的な使い方はわたしが日本語で書いた [Android ビルドで学ぶ git-repo 入門 | dev:mordiford](https://dev.maud.io/entry/2017/04/08/learn-git-repo/) を読むと良いです。
+詳細はGoogleによるドキュメント、 [Repo command reference | Android Open Source Project](http://source.android.com/source/using-repo.html) を、実践的な使い方はわたしが日本語で書いた [Android ビルドで学ぶ git-repo 入門 | dev:mordiford](https://dev.maud.io/entry/2017/04/08/learn-git-repo/) を読むと良いです。
 
 #### `git config`
 
@@ -103,28 +103,6 @@ git config --global user.name "android"
 ```
 git config --global user.email "android"
 ```
-
-#### repo の導入
-
-```
-mkdir ~/bin
-```
-
-```
-export PATH=~/bin:$PATH
-```
-
-パスを通したらダウンロードしてパーミッションを付加します。
-
-```
-curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-```
-
-```
-chmod a+x ~/bin/repo
-```
-
-誤って `~/bin` を削除したりしない限り、この工程は初回のみです。
 
 ### ソースコードのダウンロード
 
