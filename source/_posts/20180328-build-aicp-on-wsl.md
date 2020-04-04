@@ -111,7 +111,7 @@ breakfast <device> && mka bacon WITH_DEXPREOPT=false
 
 i7-2700K / 16GB(DDR3) / 500GB SSD みたいなよくある一昔前の構成とはいえ、それでもだいたい直接Ubuntuぶち込んでビルドするときの2-3倍近くはかかる感じ。
 
-どうしてそんなに遅くなるのかについてとか、実際WSLがどういう用途なら適してるのか、みたいな細かい話はsatさんの [WSL vs VM for 開発作業 - Qiita](https://qiita.com/satoru_takeuchi/items/a54812806bba0eb48f02) がその通りだなあという感じなので読んでみると良いと思います。
+どうしてそんなに遅くなるのかについてとか、実際WSLがどういう用途なら適してるのか、みたいな細かい話はsatさんの [WSL vs VM for 開発作業](https://satoru-takeuchi.hatenablog.com/entry/2020/03/26/011540) がその通りだなあという感じなので読んでみると良いと思います。
 
 ネイティブ環境やVM上のLinux環境には敵わないとはいえ、WSLでも一応ビルドが可能になったというのは大変意義深いですね、という話でした。
 
