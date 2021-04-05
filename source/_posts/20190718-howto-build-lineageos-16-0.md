@@ -5,9 +5,16 @@ tags:
 thumbnail: /images/banner-howto-build-lineage-16-0.png
 ---
 
-現在の LineageOS 16.0 の日本語でのビルド手順を以下に示します。お手持ちの機種向けにビルドしてみるのもいかがでしょう。
+LineageOS 16.0 の日本語でのビルド手順を以下に示します。お手持ちの機種向けにビルドしてみるのもいかがでしょう。
 
 <!-- more -->
+
+## 追記
+
+当記事は2019年に書かれたものであり、現在では古くなっている記述があります。
+参考に残しておきますが、今後は https://wiki.maud.io/ja/android/build/prepare を参照してください。
+
+## はじめに
 
 一度覚えてしまえば、FlokoROMなどの派生ROMでもだいたい通用する方法です。
 
