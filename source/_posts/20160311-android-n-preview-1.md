@@ -1,17 +1,19 @@
 ---
 title: Android N Preview を Nexus 5 向けにビルドした
 date: 2016-03-11 06:30:00
+cover_img: /images/cm3d2-6.jpg
+summary: Android N Previewやったーー！
 ---
 
 - Android N Previewやったーー！
 <!-- more -->
-    - Nexus 5対象外じゃないすかー！
-        - やだーー！！
-            - おや、[こんなところ](https://android.googlesource.com/device/lge/hammerhead/+/android-n-preview-1) に `hammerhead` 向けの `android-n-preview-1` ブランチがあるじゃないですか
-                - ビルドしよう(錯乱)
-                    - AOSPのビルドやったこと無い
-                        - でもカスタムROMは毎日のようにビルドしてるし、まあどうにかなるでしょ
 
+- Nexus 5対象外じゃないすかー！
+    - やだーー！！
+- おや、[こんなところ](https://android.googlesource.com/device/lge/hammerhead/+/android-n-preview-1) に `hammerhead` 向けの `android-n-preview-1` ブランチがあるじゃないですか
+    - ビルドしよう(錯乱)
+        - AOSPのビルドやったこと無い
+        - でもカスタムROMは毎日のようにビルドしてるし、まあどうにかなるでしょ
 - 当ブログではTerminalにおけるプロンプトを表記していないので工程は行ごとにコピペでも問題ないです
     - あと作業は最新の状態である Ubuntu Server 14.04 LTS で行いました
 

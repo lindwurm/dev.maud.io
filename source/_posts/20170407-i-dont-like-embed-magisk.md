@@ -1,7 +1,8 @@
 ---
 title: カスタムROMへのMagiskの同梱が嫌いだという話
 date: 2017-04-07 16:00:00
-thumbnail: /images/banner-embed-magisk.png
+cover_img: /images/banner-embed-magisk.png
+summary: タイトル通りです
 ---
 
 わたしがAICPに関わってるのでAICPのやり方に関してだけ書いていきますが、同様な他ROMも嫌いです。

@@ -1,6 +1,8 @@
 ---
 title: ResurrectionRemix-M のビルド方法
 date: 2016-03-18 16:00:00
+cover_img: /images/cm3d2-3.jpg
+summary: 現在の Resurrection Remix のビルド手順を以下に示します。
 ---
 
 現在の Resurrection Remix のビルド手順を以下に示します。
@@ -8,6 +10,7 @@ date: 2016-03-18 16:00:00
 
 CyanogenModやその派生でも、概ね似たような手順でビルドできるでしょう。
 CyanogenModのビルドについては以下の記事を参照ください。
+
 http://dev.maud.io/entry/2016/04/25/how-to-build-cm13
 
 ## 0. はじめに

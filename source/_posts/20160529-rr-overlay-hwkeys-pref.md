@@ -1,6 +1,8 @@
 ---
 title: ハードウェアキーのある端末向けにResurrection Remix Mをビルドする際の注意点
 date: 2016-05-29 02:00:00
+cover_img: /images/cm3d2-11.jpg
+summary: Resurrection RemixではCyanogenMod向けのデバイスツリーをそのまま流用してビルドが可能なことはご存知かと思いますが、たまに独自の箇所がありよく注意する必要があります。その一つがハードウェアキーです。
 ---
 
 Resurrection RemixではCyanogenMod向けのデバイスツリーをそのまま流用してビルドが可能なことはご存知かと思いますが、たまに独自の箇所がありよく注意する必要があります。その一つがハードウェアキーです。

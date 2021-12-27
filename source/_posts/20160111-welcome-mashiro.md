@@ -1,8 +1,10 @@
 ---
 title: ビルド用サーバを設置した
 date: 2016-01-11 05:00:00
-thumbnail: https://pbs.twimg.com/media/CYRraF1U0AAzydg.jpg
+cover_img: https://pbs.twimg.com/media/CYRraF1U0AAzydg.jpg
+summary: ビールサーバーではないです。
 ---
+
 ビールサーバーではないです。
 
 <!-- more -->
@@ -21,7 +23,9 @@ thumbnail: https://pbs.twimg.com/media/CYRraF1U0AAzydg.jpg
 
 {% twitter https://twitter.com/lindwurm/status/685791139551555584 %}
 
-ホスト名は黒猫ダンジョンネタが早くも切れてしまった(登場用語が少ない)ので、適当に好きなキャラ名を@shimadahさんに候補として投げた結果 `mashiro` になりました。ちなみに元ネタは[明日からテレビアニメも開始](http://aokana-anime.com/)される蒼の彼方のフォーリズムから、ゲーマーな小動物系後輩(かわいい)の [有坂真白](http://aokana.net/character/mashiro/)です。
+ホスト名は黒猫ダンジョンネタが早くも切れてしまった(登場用語が少ない)ので、適当に好きなキャラ名を@shimadahさんに候補として投げた結果 `mashiro` になりました。
+
+ちなみに元ネタは[明日からテレビアニメも開始](http://aokana-anime.com/)される蒼の彼方のフォーリズムから、ゲーマーな小動物系後輩(かわいい)の [有坂真白](http://aokana.net/character/mashiro/)です。
 
 [![](https://2.bp.blogspot.com/-ketCgxYteMw/VpKp4-mzL2I/AAAAAAAADCM/KM_om_hQpFU/s1600/Screenshot+from+2016-01-11+03-57-23.png)](http://aokana-anime.com/character/)
 
@@ -29,7 +33,9 @@ thumbnail: https://pbs.twimg.com/media/CYRraF1U0AAzydg.jpg
 
 [![](https://4.bp.blogspot.com/-UfbZSuv7EP0/VpKvrWON0MI/AAAAAAAADCc/qasIMIohfZA/s1600/Screenshot+from+2016-01-11+04-23-14.png)](http://aokana-anime.com/character/)
 
-閑話休題。そんなmashiroサーバですが、arm64なLG G4向けのBlissPop(CyanogenMod 12.1ベースの多機能ROM)を1時間11分でビルド完了する程度につよかったです。(参考記録: i5-3320MとRAM16GB積んだX230でarmなLG G3向けにビルドして2時間半〜3時間弱)
+閑話休題。そんなmashiroサーバですが、arm64なLG G4向けのBlissPop(CyanogenMod 12.1ベースの多機能ROM)を1時間11分でビルド完了する程度につよかったです。
+
+(参考記録: i5-3320MとRAM16GB積んだX230でarmなLG G3向けにビルドして2時間半〜3時間弱)
 
 {% twitter https://twitter.com/lindwurm/status/685927495653134336 %}
 

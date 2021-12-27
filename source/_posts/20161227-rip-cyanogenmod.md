@@ -1,7 +1,8 @@
 ---
 title: CyanogenModの終焉とそれから
 date: 2016-12-27 00:30:00
-thumbnail: /images/banner-rip-cyanogenmod.png
+cover_img: /images/banner-rip-cyanogenmod.png
+summary: これまでAndroidをベースとしたアフターマーケットファームウェアの代表格であったCyanogenModは、2016年12月に予期されぬ形で唐突に終わりを迎えることになりました。
 ---
 
 これまでAndroidをベースとしたアフターマーケットファームウェアの代表格であったCyanogenModは、2016年12月に予期されぬ形で唐突に終わりを迎えることになりました。最初のCyanogenMod 3.1のリリースが2009/07/01とされているので、開発期間も合わせて8年ほどの命ってとこですかね。

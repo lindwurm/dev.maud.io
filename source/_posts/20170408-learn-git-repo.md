@@ -1,7 +1,8 @@
 ---
 title: Android ビルドで学ぶ git-repo 入門
 date: 2017-04-08 00:00:00
-thumbnail: /images/banner-learn-git-repo.png
+cover_img: /images/banner-learn-git-repo.png
+summary: Androidのビルドを行っていく上で避けては通れない git-repo を必要なところから理解していきましょう
 ---
 
 Androidのビルドを行っていく上で避けては通れない `git-repo` を必要なところから理解していきましょう、というドキュメント風味企画

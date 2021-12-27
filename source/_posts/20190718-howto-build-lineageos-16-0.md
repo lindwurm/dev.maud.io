@@ -1,8 +1,9 @@
 ---
 title: LineageOS 16.0 のビルド方法
 date: 2019-07-18 00:35:36
-tags:
-thumbnail: /images/banner-howto-build-lineage-16-0.png
+tags: LineageOS
+cover_img: /images/banner-howto-build-lineage-16-0.png
+summary: LineageOS 16.0 の日本語でのビルド手順を以下に示します。お手持ちの機種向けにビルドしてみるのもいかがでしょう。
 ---
 
 LineageOS 16.0 の日本語でのビルド手順を以下に示します。お手持ちの機種向けにビルドしてみるのもいかがでしょう。

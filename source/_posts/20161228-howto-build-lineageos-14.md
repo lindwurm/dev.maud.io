@@ -1,7 +1,8 @@
 ---
 title: LineageOS/CM14.1 のビルド方法
 date: 2016-12-28 15:00:00
-thumbnail: /images/banner-howto-build-cm14.png
+cover_img: /images/banner-howto-build-cm14.png
+summary: 現在の LineageOS/CM14.1 のビルド手順を以下に示します。Weeklyビルドは始まったとはいえ、まだ機種は限られているので、この機会に自分でビルドしてみるのはいかがでしょうか？
 ---
 
 現在の LineageOS/CM14.1 のビルド手順を以下に示します。Weeklyビルドは始まったとはいえ、まだ機種は限られているので、この機会に自分でビルドしてみるのはいかがでしょうか？

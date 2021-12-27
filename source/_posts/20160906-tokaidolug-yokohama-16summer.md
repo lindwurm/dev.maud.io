@@ -1,7 +1,8 @@
 ---
 title: 東海道眺める横浜の夏 2016 に参加・発表してきた
 date: 2016-09-06 01:30:00
-thumbnail: https://pbs.twimg.com/media/CrbYoldVYAIrYQP.jpg
+cover_img: https://pbs.twimg.com/media/CrbYoldVYAIrYQP.jpg
+summary: 今回のを週刊の記事に入れてしまうと近況がクソ長くなりそうなのでこれ単体でちょっと書くことにしました
 ---
 
 今回のを週刊の記事に入れてしまうと近況がクソ長くなりそうなのでこれ単体でちょっと書くことにしました
