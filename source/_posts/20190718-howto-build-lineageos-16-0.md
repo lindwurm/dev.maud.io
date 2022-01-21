@@ -2,7 +2,7 @@
 title: LineageOS 16.0 のビルド方法
 date: 2019-07-18 00:35:36
 tags: LineageOS
-cover_img: /images/banner-howto-build-lineage-16-0.png
+index_img: /images/banner-howto-build-lineage-16-0.png
 summary: LineageOS 16.0 の日本語でのビルド手順を以下に示します。お手持ちの機種向けにビルドしてみるのもいかがでしょう。
 ---
 
@@ -82,7 +82,7 @@ ROMのビルド | PCのスペックによる
 
 必要なパッケージは以下の通りです。
 
-```
+```bash
 sudo apt update && sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush repo rsync schedtool squashfs-tools unzip xsltproc zip zlib1g-dev
 ```
 
@@ -104,11 +104,11 @@ sudo apt update && sudo apt install bc bison build-essential ccache curl flex g+
 
 Git使ってる人は省略。単純にビルド環境にしか使わないなら以下の通りでも問題ありませんが、これからGitを使う予定のある人は `android` の代わりに表示名とメールアドレスを入力しておくとよいです。
 
-```
+```bash
 git config --global user.name "android"
 ```
 
-```
+```bash
 git config --global user.email "android"
 ```
 
@@ -116,11 +116,11 @@ git config --global user.email "android"
 
 ビルド用のディレクトリを作成し、入ります
 
-```
+```bash
 mkdir lineage
 ```
 
-```
+```bash
 cd lineage
 ```
 
@@ -128,7 +128,7 @@ cd lineage
     - `repo init` で設定(initializing)します。 `-u <URL>` でmanifestのソースを指定し、 `-b <revision>` でmanifestのブランチやリビジョンを指定します。
     - この工程は他のROMにも応用できるので覚えると良いです
 
-```
+```bash
 repo init -u https://github.com/LineageOS/android.git -b lineage-16.0
 ```
 
@@ -136,8 +136,8 @@ repo init -u https://github.com/LineageOS/android.git -b lineage-16.0
     - `repo sync` はmanifestに記述された全てのリポジトリを最新の状態に同期します。回線の速度とお使いのマシンの使用可能なスレッド数に応じて `-jN`オプションを使用してください。一般的に、100Mbps以上の実効速度であれば N=8 で問題ないとされます。
     - その他のオプションについては [Android ビルドで学ぶ git-repo 入門 | dev:mordiford](https://dev.maud.io/entry/2017/04/08/learn-git-repo/) に書いたとおりなのでやっぱりこちらもおすすめです。
 
-```
-repo sync -j8 --force-sync --no-clone-bundle
+```bash
+repo sync -j8 -c --force-sync --no-clone-bundle --no-tags
 ```
 
 ## ビルドの準備
@@ -153,13 +153,13 @@ repo sync -j8 --force-sync --no-clone-bundle
 
 まずはビルド用のコマンド集である `envsetup.sh` をロードします。
 
-```
+```bash
 . build/envsetup.sh
 ```
 
 ビルドするターゲット端末のコードネームを確認したら、
 
-```
+```bash
 breakfast <device>
 ```
 
@@ -169,11 +169,11 @@ breakfast <device>
 
 公式にサポートされている端末ではbreakfastするだけでいい感じに `~/lineage/.repo/local_manifests/roomservice.xml` に追加されますが、そうでなければ自分でmanifestを書く必要があります。まずはローカルなmanifestを置くディレクトリとmanifestのxmlを作成しましょう。xmlの名前はお好きにどうぞ。ただし、自分でmanifestを書く際は `roomservice.xml` は避けたほうが良いでしょう。
 
-```
+```bash
 mkdir -p .repo/local_manifests
 ```
 
-```
+```bash
 touch .repo/local_manifests/bullhead.xml
 ```
 
@@ -206,7 +206,7 @@ touch .repo/local_manifests/bullhead.xml
 
 3-1で取得したデバイス固有のソースがあるディレクトリまで移動します
 
-```
+```bash
 cd device/lge/bullhead
 ```
 ここに `extract-files.sh` があるので、実行すると、`proprietary-files.txt` に記載されたバイナリブロブ共を実機から取り出してソースと一緒に配置してくれます。
@@ -228,24 +228,24 @@ xda-Developersの [[GUIDE][TUT][WINDOWS/LINUX] How To Extract Nexus Factory Imag
 
 ここまでの作業中にLineage側で何かしら更新されていたり、local_manifestsに手を加えたりしているかもしれません。ビルド前に `repo sync` し直すと良いです。
 
-```
-repo sync -j8 --force-sync --no-clone-bundle
+```bash
+repo sync -j8 -c --force-sync --no-clone-bundle --no-tags
 ```
 
-```
+```bash
 export LC_ALL=C.UTF-8
 export ALLOW_MISSING_DEPENDENCIES=true
 ```
 
 ビルド用のコマンド集みたいなもの、`envsetup` を読み込んで
 
-```
+```bash
 . build/envsetup.sh
 ```
 
 いざビルド！
 
-```
+```bash
 brunch <device> 2>&1 | tee lineage_$(date '+%Y%m%d_%H-%M-%S').log
 ```
 

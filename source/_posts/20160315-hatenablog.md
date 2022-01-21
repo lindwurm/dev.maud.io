@@ -1,7 +1,7 @@
 ---
 title: はてなブログに移行した
 date: 2016-03-15 09:30:00
-cover_img: /images/cm3d2-10.jpg
+index_img: /images/cm3d2-10.jpg
 summary: せっかくなので、今まで使ってきたブログサービスを振り返って何が必要だったのか考える。
 ---
 

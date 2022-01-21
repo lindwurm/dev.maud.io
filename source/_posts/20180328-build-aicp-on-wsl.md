@@ -1,7 +1,7 @@
 ---
 title: WSLでAndroidをビルドする話
 date: 2018-03-28 20:37:00
-cover_img: images/image-wsl-install-2.png
+index_img: images/image-wsl-install-2.png
 summary: タイトル通り、Windows Subsystem for Linux (WSL) で Android OS をビルドします。
 ---
 

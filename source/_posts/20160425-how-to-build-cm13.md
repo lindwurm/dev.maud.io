@@ -2,7 +2,7 @@
 title: CyanogenMod 13のビルド方法
 date: 2016-04-25 15:00:00
 tags:
-cover_img: /images/banner-howto-build-cm13.png
+index_img: /images/banner-howto-build-cm13.png
 summary: 先日 Resurrection Remix のビルド方法を書いたのですが、無難にCyanogenModのビルド方法も載せておくことにしました。
 ---
 

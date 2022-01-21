@@ -1,7 +1,7 @@
 ---
 title: カスタムROMへのMagiskの同梱が嫌いだという話
 date: 2017-04-07 16:00:00
-cover_img: /images/banner-embed-magisk.png
+index_img: /images/banner-embed-magisk.png
 summary: タイトル通りです
 ---
 

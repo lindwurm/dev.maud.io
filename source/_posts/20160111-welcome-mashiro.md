@@ -1,7 +1,7 @@
 ---
 title: ビルド用サーバを設置した
 date: 2016-01-11 05:00:00
-cover_img: https://pbs.twimg.com/media/CYRraF1U0AAzydg.jpg
+index_img: https://pbs.twimg.com/media/CYRraF1U0AAzydg.jpg
 summary: ビールサーバーではないです。
 ---
 

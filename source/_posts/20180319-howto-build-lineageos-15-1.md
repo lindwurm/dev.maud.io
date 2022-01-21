@@ -1,7 +1,7 @@
 ---
 title: LineageOS 15.1 のビルド方法
 date: 2018-03-19 17:35:00
-cover_img: /images/banner-howto-build-lineage-15-1.png
+index_img: /images/banner-howto-build-lineage-15-1.png
 summary: LineageOS 15.1 のビルド手順を以下に示します。公式ビルドへの採用基準が引き上げられた今、お手持ちの機種向けにビルドしてみるのもいかがでしょう。
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: ResurrectionRemix-M のビルド方法
 date: 2016-03-18 16:00:00
-cover_img: /images/cm3d2-3.jpg
+index_img: /images/cm3d2-3.jpg
 summary: 現在の Resurrection Remix のビルド手順を以下に示します。
 ---
 

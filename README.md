@@ -2,4 +2,4 @@
 
 devblog with Hexo.
 
-- https://dev.maud.io として Netlify でdeployされています。
+- https://dev.maud.io として Vercel でdeployされています。

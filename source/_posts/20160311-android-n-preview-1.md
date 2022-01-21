@@ -1,7 +1,7 @@
 ---
 title: Android N Preview を Nexus 5 向けにビルドした
 date: 2016-03-11 06:30:00
-cover_img: /images/cm3d2-6.jpg
+index_img: /images/cm3d2-6.jpg
 summary: Android N Previewやったーー！
 ---
 

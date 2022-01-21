@@ -1,7 +1,7 @@
 ---
 title: CyanogenModの終焉とそれから
 date: 2016-12-27 00:30:00
-cover_img: /images/banner-rip-cyanogenmod.png
+index_img: /images/banner-rip-cyanogenmod.png
 summary: これまでAndroidをベースとしたアフターマーケットファームウェアの代表格であったCyanogenModは、2016年12月に予期されぬ形で唐突に終わりを迎えることになりました。
 ---
 
